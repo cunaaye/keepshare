@@ -39,7 +39,8 @@ proguardOptions in Android ++=
 
 proguardCache in Android += ProguardCache("com.google.common") % "com.google.guava"
 
-ndkBuild in Android := Nil
+//ndkBuild in Android := Nil
+watchSources ++= { ((projectLayout in Android).value.jni ***) get }
 
 proguardOptions in Android ++=
   "-keep class * extends junit.framework.TestCase { *; }" ::
